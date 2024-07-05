@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Feedback Form</h2>
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Submit Feedback</button>
+</form>
+<div style="margin-top: 20px">
+  <form action="{% url 'index' %}" method="get">
+    <button type="submit" class="btn btn-outline-primary">
+      <i class="fas fa-arrow-left"></i>
+      <span>Go Back</span>
+    </button>
+  </form>
+</div>
+{% endblock %}

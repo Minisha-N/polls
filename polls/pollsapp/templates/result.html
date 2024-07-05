@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block content %}
+
+<h3 style="margin-bottom: 20px"><strong>Results</strong></h3>
+
+<h4>{{question.question}}</h4>
+
+<ul class="list-group">
+  {% for option in options %}
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    {{option.option}}
+    <span class="badge bg-primary rounded-pill">{{option.vote}}%</span>
+  </li>
+  {% endfor %}
+</ul>
+<div style="margin-top: 20px">
+  <form action="{% url 'index' %}" method="get">
+    <button type="submit" class="btn btn-outline-primary">
+      <i class="fas fa-arrow-left"></i>
+      <span>Go Back</span>
+    </button>
+  </form>
+  <form action="{% url 'feedback' %}">
+    <button type="submit" class="btn btn-primary">
+      Give Feedback
+    </button>
+  </form>
+</div>
+</div>
+
+{% endblock %}
